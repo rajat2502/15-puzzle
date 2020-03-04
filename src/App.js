@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import Game from "./Components/Game";
+
 const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
 const randomizeArray = array => {
@@ -30,24 +32,63 @@ const App = () => {
       newPositions[targetIndex] = 0;
       setmoves(newmoves);
       setpositions(newPositions);
-      console.log(positions, moves, newmoves);
+      let win = positions.every(x => x === positions.indexOf(x) + 1 || x === 0);
+      if (win) {
+        alert("Congratulations you have won the game!!!");
+      }
     }
   };
 
+  const startNewGame = () => {
+    // let newPositions = randomizeArray(positions);
+    // setpositions(newPositions);
+    // setmoves(0);
+  };
+
+  const pauseGame = () => {};
+
+  // const startTimer = (duration = 3600) => {
+  //   let timer = duration,
+  //     minutes,
+  //     seconds;
+  //   counter = setInterval(function() {
+  //     minutes = parseInt(timer / 60, 10);
+  //     seconds = parseInt(timer % 60, 10);
+
+  //     minutes = minutes < 10 ? "0" + minutes : minutes;
+  //     seconds = seconds < 10 ? "0" + seconds : seconds;
+
+  //     setmin(minutes);
+  //     setsec(seconds);
+  //     setstart(true);
+
+  //     if (--timer < 0) {
+  //       stopTimer();
+  //     }
+  //   }, 1000);
+  //   startGame();
+  // };
+
   return (
-    <div className="game">
-      {positions.map((i, index) => {
-        const cellClass = i ? "cell" : "cell empty";
-        return (
-          <div
-            className={cellClass}
-            key={index}
-            onClick={i !== 0 ? e => updatePositions(i) : null}
-          >
-            {i ? i : ""}
-          </div>
-        );
-      })}
+    <div className="app">
+      <h1 className="heading">15 Puzzle</h1>
+      <div className="content">
+        <div className="buttons">
+          <button className="btn new-game" onClick={startNewGame}>
+            New Game
+          </button>
+          <button className="btn pause-game" onClick={pauseGame}>
+            Pause Game
+          </button>
+        </div>
+        <div className="stats">
+          <p className="moves">
+            Moves: <span>{moves}</span>
+          </p>
+          <p className="time">Time: 0s</p>
+        </div>
+      </div>
+      <Game positions={positions} updatePositions={updatePositions} />
     </div>
   );
 };

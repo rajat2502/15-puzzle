@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One&display=swap');
+
 html,
 body {
   margin: 0;
@@ -8,28 +10,110 @@ body {
   align-items: center;
   background-color: #27496d;
   color: #fff;
+  text-align: center;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.heading {
+  font-size: 3rem;
+  margin: 5px;
+  text-transform: uppercase;
+  font-family: 'Fredoka One', cursive;
+  letter-spacing: 0.12ch;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin: 10px;
+  flex-wrap: wrap;
+}
+
+.content > div {
+  display: flex;
+}
+
+.btn {
+  width: 100%;
+  border: none;
+  color: white;
+  background-color: #142850;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 10px 14px;
+  font-size: 1em;
+  transition: background-color 0.20s ease-in;
+  cursor: pointer;
+  outline: none;
+}
+
+.btn:hover {
+  background-color: rgb(232, 138, 69);
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.new-game {
+  margin-right: 5px;
+}
+
+.pause-game {
+  margin-left: 5px;
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  background-color: #142850;
+  border-radius: 5px;
+  padding: 0 6px;
+  font-weight: bold;
+}
+
+.stats p {
+  margin-left: 6px;
+  margin-right: 6px;
 }
 
 .game {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 280px;
+  width: 290px;
   flex-wrap: wrap;
 }
 
 .cell {
-  width: 60px;
-  height: 60px;
-  border: 1px solid #fff;
+  width: 64px;
+  height: 64px;
   border-radius: 4px;
   margin: 4px;
+  font-size: 1.2rem;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #0c7b93;
   font-weight: bold;
+  transition: background-color 0.20s ease-in;
+}
+
+.correct-cell {
+  background-color: rgb(232, 138, 69);
 }
 
 .empty {
