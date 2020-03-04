@@ -1,0 +1,36 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #27496d;
+  color: #fff;
+}
+
+.game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  flex-wrap: wrap;
+}
+
+.cell {
+  width: 60px;
+  height: 60px;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  margin: 4px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0c7b93;
+}
+
+.empty {
+  background-color: #00a8cc;
+}
