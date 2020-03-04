@@ -29,6 +29,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #0c7b93;
+  font-weight: bold;
 }
 
 .empty {

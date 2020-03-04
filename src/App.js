@@ -2,32 +2,35 @@ import React, { useState } from "react";
 
 const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
-const randomizeArray = arr => {
-  for (var i = arr.length - 1; i > 0; i--) {
+const randomizeArray = array => {
+  for (var i = array.length - 1; i > 0; i--) {
     var j = Math.floor(Math.random() * (i + 1));
-    var temp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = temp;
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
   }
-  return arr;
+  return array;
 };
 
 const newArr = randomizeArray(arr);
 
 const App = () => {
   const [positions, setpositions] = useState(newArr);
+  const [moves, setmoves] = useState(0);
 
   const updatePositions = index => {
     let newPositions = positions;
-    let emptyIndex = positions.indexOf(0);
-    let targetIndex = positions.indexOf(index);
+    let newmoves = moves;
+    const emptyIndex = newPositions.indexOf(0);
+    const targetIndex = newPositions.indexOf(index);
     const dif = Math.abs(targetIndex - emptyIndex);
-    console.log(emptyIndex, targetIndex, dif);
     if (dif === 1 || dif === 4) {
+      ++newmoves;
       newPositions[emptyIndex] = index;
       newPositions[targetIndex] = 0;
+      setmoves(newmoves);
       setpositions(newPositions);
-      console.log(positions);
+      console.log(positions, moves, newmoves);
     }
   };
 
