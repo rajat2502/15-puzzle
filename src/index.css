@@ -11,6 +11,7 @@ body {
   background-color: #27496d;
   color: #fff;
   text-align: center;
+  font-family: sans-serif;
 }
 
 .app {
@@ -59,6 +60,12 @@ body {
   background-color: rgb(232, 138, 69);
 }
 
+.btn:disabled {
+  background-color: #142850;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .buttons {
   display: flex;
   align-items: center;
@@ -93,13 +100,17 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 290px;
+  width: 360px;
   flex-wrap: wrap;
 }
 
+.paused-game {
+  opacity: 0.5;
+}
+
 .cell {
-  width: 64px;
-  height: 64px;
+  width: 82px;
+  height: 82px;
   border-radius: 4px;
   margin: 4px;
   font-size: 1.2rem;
@@ -110,12 +121,53 @@ body {
   background-color: #0c7b93;
   font-weight: bold;
   transition: background-color 0.20s ease-in;
+  transition: scale 0.20 ease-in;
+}
+
+.cell:hover {
+  transform: scale(1.025);
+  background-color: #00a8cc;
 }
 
 .correct-cell {
   background-color: rgb(232, 138, 69);
 }
 
+.correct-cell:hover {
+  background-color: #f49047;
+}
+
 .empty {
   background-color: #00a8cc;
+}
+
+.paused-state {
+  position: absolute;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  font-size: 1.1rem;
+}
+
+.footer p {
+  margin: 6px;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* media query for mobile view */
+@media only screen and (max-width: 600px) {
+  .game {
+    width: 290px;
+  }
+
+  .cell {
+    width: 64px;
+    height: 64px;
+  }
 }
