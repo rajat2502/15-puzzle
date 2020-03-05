@@ -19,6 +19,7 @@ const randomizeArray = array => {
   return array;
 };
 
+// randomized array
 const newArr = randomizeArray(arr);
 
 const App = () => {
@@ -66,11 +67,9 @@ const App = () => {
     const newPaused = paused ? 0 : 1;
     setpaused(newPaused);
     if (!paused) {
-      setpausedTime(sec);
       pauseCounter = 1;
     } else {
       pauseCounter = 0;
-      setsec(pausedTime);
     }
   };
 
@@ -78,7 +77,7 @@ const App = () => {
     <div className="app">
       <h1 className="heading">15 Puzzle</h1>
       <Content
-        sec={!paused ? sec : pausedTime}
+        sec={sec}
         moves={moves}
         paused={paused}
         startNewGame={startNewGame}
